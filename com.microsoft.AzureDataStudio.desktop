@@ -1,0 +1,11 @@
+[Desktop Entry]
+Type=Application
+Name=Azure Data Studio
+GenericName=Azure data management
+Comment=Data Management Tool that enables you to work with SQL Server, Azure SQL DB and SQL DW from Windows, macOS and Linux.
+Icon=com.microsoft.AzureDataStudio
+Exec=run.sh %F
+Terminal=false
+Categories=TextEditor;Development;IDE;
+Keywords=Cloud;Online;
+StartupWMClass=AzureDataStudio

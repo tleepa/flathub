@@ -1,0 +1,63 @@
+app-id: com.microsoft.AzureDataStudio
+base: org.electronjs.Electron2.BaseApp
+base-version: '23.08'
+runtime: org.freedesktop.Platform
+runtime-version: '23.08'
+sdk: org.freedesktop.Sdk
+command: run.sh
+separate-locales: false
+tags: [proprietary]
+finish-args:
+  - --share=ipc
+  - --share=network
+  - --socket=wayland
+  - --socket=fallback-x11
+  - --device=dri
+  - --filesystem=host
+  - --talk-name=org.freedesktop.secrets
+  - --talk-name=org.kde.kwalletd5
+  - --system-talk-name=org.kde.kwalletd5
+modules:
+  - openssl-1.1.yaml
+  - name: azuredatastudio
+    buildsystem: simple
+    build-commands:
+      - install -D -m 644 -t $FLATPAK_DEST/share/applications ${FLATPAK_ID}.desktop
+      - install -D -m 644 -t $FLATPAK_DEST/share/metainfo ${FLATPAK_ID}.metainfo.xml
+      - install -D -m 644 -t $FLATPAK_DEST/share/icons/hicolor/512x512/apps ${FLATPAK_ID}.png
+      - install -D apply_extra -t $FLATPAK_DEST/bin
+      - install -D -t $FLATPAK_DEST/bin run.sh
+    sources:
+      - type: script
+        dest-filename: apply_extra
+        commands:
+          - tar --strip-components=1 -xzf azure-data-studio.tar.gz
+          - rm -f azure-data-studio.tar.gz
+      - type: file
+        path: run.sh
+      - type: file
+        path: com.microsoft.AzureDataStudio.png
+      - type: file
+        path: com.microsoft.AzureDataStudio.desktop
+      - type: file
+        path: com.microsoft.AzureDataStudio.metainfo.xml
+      - type: extra-data
+        filename: azure-data-studio.tar.gz
+        only-arches: [x86_64]
+        url: https://azuredatastudio-update.azurewebsites.net/1.47.1/linux-x64/stable
+        sha256: 66b796abb13700aaac57faa6302f66db168aee5049c88dc0196727fe395fd8a3
+        size: 205890083
+        x-checker-data:
+          type: anitya
+          project-id: 370924
+          url-template: https://azuredatastudio-update.azurewebsites.net/$version/linux-x64/stable
+  - name: host-spawn
+    buildsystem: simple
+    build-commands:
+      - install -D -m 755 host-spawn /app/bin/host-spawn
+    sources:
+      - type: file
+        url: https://github.com/1player/host-spawn/releases/download/v1.5.1/host-spawn-x86_64
+        sha256: 107160808e99223d0335f1b45cbfe9cb3b45a9fb8d9658493902554dd54d4335
+        dest-filename: host-spawn
+        only-arches: [x86_64]

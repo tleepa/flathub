@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component type="desktop">
+  <id>com.microsoft.AzureDataStudio</id>
+  <provides><id>com.microsoft.AzureDataStudio.desktop</id></provides>
+  <launchable type="desktop-id">com.microsoft.AzureDataStudio.desktop</launchable>
+  <name>Azure Data Studio</name>
+  <developer_name>Azure Data Studio</developer_name>
+  <summary>Data management and development tool</summary>
+  <metadata_license>CC0-1.0</metadata_license>
+  <project_license>LicenseRef-proprietary=https://github.com/microsoft/azuredatastudio/blob/main/LICENSE.txt</project_license>
+  <url type="homepage">https://azure.microsoft.com/en-us/products/data-studio/</url>
+  <description>
+    <p>
+      Designed to focus on the functionality data platform developers use the most, Azure Data Studio offers additional
+      experiences available as optional extensions. It's built for data professionals who use SQL Server and Azure databases
+      on-premises or in multicloud environments.
+    </p>
+    <p>NOTE: This wrapper is not verified by, affiliated with, or supported by Microsoft.</p>
+  </description>
+  <screenshots>
+    <screenshot type="default">
+      <caption>The main Azure Data Studio window</caption>
+      <image type="source" width="825" height="467">https://github.com/Microsoft/azuredatastudio/raw/main/docs/overview_screen.jpg</image>
+    </screenshot>
+  </screenshots>
+  <content_rating type="oars-1.1">
+    <content_attribute id="social-info">moderate</content_attribute>
+  </content_rating>
+  <releases>
+    <release version="1.47.1" date="2024-01-10"/>
+  </releases>
+</component>
