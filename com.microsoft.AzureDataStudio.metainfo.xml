@@ -4,7 +4,7 @@
   <provides><id>com.microsoft.AzureDataStudio.desktop</id></provides>
   <launchable type="desktop-id">com.microsoft.AzureDataStudio.desktop</launchable>
   <name>Azure Data Studio</name>
-  <developer_name>Azure Data Studio</developer_name>
+  <developer_name>Microsoft Corporation</developer_name>
   <summary>Data management and development tool</summary>
   <metadata_license>CC0-1.0</metadata_license>
   <project_license>LicenseRef-proprietary=https://github.com/microsoft/azuredatastudio/blob/main/LICENSE.txt</project_license>
